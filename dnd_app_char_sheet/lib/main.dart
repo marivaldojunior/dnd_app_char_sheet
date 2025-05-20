@@ -28,7 +28,7 @@ Future<void> main() async {
                 CharacterManager(isar: isar, appPrefs: appPrefs)),
         Provider<Isar>.value(value: isar), // Provide the Isar instance
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
