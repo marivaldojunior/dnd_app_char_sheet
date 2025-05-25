@@ -211,28 +211,43 @@ class CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
                     !_isEditMode, // Disable interaction when not in edit mode
                     child: AttributesDisplay(attributes: character.attributes),
                   ),
-                  const ConsumableWidget(),
-                  Row(
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.0),
+                    child: Divider(
+                      color: Color.fromARGB(255, 78, 76, 76),
+                      thickness: 2.0,
+                    ),
+                  ),
+                  Column(
                     children: [
-                      Expanded(
-                        child: Column(
-                          children: [
-                            HealthBar(
-                                currentHitPoints: character.currentHitPoints,
-                                maxHitPoints: character.maxHitPoints,
-                                temporaryHitPoints:
-                                character.temporaryHitPoints),
-                            const SizedBox(height: 10),
-                            ExperienceBar(
-                                currentExperience: character.experiencePoints,
-                                currentLevel: character.level),
-                          ],
-                        ),
-                      ),
+                      HealthBar(
+                          currentHitPoints: character.currentHitPoints,
+                          maxHitPoints: character.maxHitPoints,
+                          temporaryHitPoints:
+                          character.temporaryHitPoints),
+                      const SizedBox(height: 10),
+                      ExperienceBar(
+                          currentExperience: character.experiencePoints,
+                          currentLevel: character.level),
+                      const SizedBox(height: 10),
                       CoinDisplayWidget(coin: character.coin)
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.0),
+                    child: Divider(
+                      color: Color.fromARGB(255, 78, 76, 76),
+                      thickness: 2.0,
+                    ),
+                  ),
+                  const ConsumableWidget(),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.0),
+                    child: Divider(
+                      color: Color.fromARGB(255, 78, 76, 76),
+                      thickness: 2.0,
+                    ),
+                  ),
                   Wrap(
                     spacing: 8.0, // Espaçamento horizontal entre os botões
                     runSpacing: 4.0, // Espaçamento vertical entre as linhas (se houver quebra)
@@ -268,13 +283,13 @@ class CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
-                  const Divider(
-                    color: Color.fromARGB(255, 78, 76, 76),
-                    thickness: 2.0,
-                  ),
-                  const SizedBox(
-                      height: 20), // Larger spacing to distinguish boundaries
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.0),
+                    child: Divider(
+                      color: Color.fromARGB(255, 78, 76, 76),
+                      thickness: 2.0,
+                    ),
+                  ), // Larger spacing to distinguish boundaries
                   const DiceRow(),
                   DiceBagWidget(diceBag: character.diceBag),
                 ],

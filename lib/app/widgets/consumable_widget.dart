@@ -75,11 +75,7 @@ Widget build(BuildContext context) {
                   ),
                 );
               }).toList(),
-            ),
-            const Divider(
-              color: Color.fromARGB(255, 184, 184, 184),
-              thickness: 2.0,
-            ),
+            )
           ],
         ),
       );
