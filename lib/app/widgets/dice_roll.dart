@@ -12,10 +12,10 @@ class DiceRollPopup extends StatefulWidget {
       {super.key, required this.diceSet, this.advantageDisadvantage = false});
 
   @override
-  _DiceRollPopupState createState() => _DiceRollPopupState();
+  DiceRollPopupState createState() => DiceRollPopupState();
 }
 
-class _DiceRollPopupState extends State<DiceRollPopup>
+class DiceRollPopupState extends State<DiceRollPopup>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;

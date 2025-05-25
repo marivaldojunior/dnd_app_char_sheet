@@ -9,10 +9,10 @@ class SpellListScreen extends StatefulWidget {
   const SpellListScreen({super.key});
 
   @override
-  _SpellListScreenState createState() => _SpellListScreenState();
+  SpellListScreenState createState() => SpellListScreenState();
 }
 
-class _SpellListScreenState extends State<SpellListScreen> {
+class SpellListScreenState extends State<SpellListScreen> {
   List<Spell> spells = [];
   List<Spell> filteredSpells = [];
   String searchQuery = '';

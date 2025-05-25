@@ -7,10 +7,10 @@ class SkillExpertiseScreen extends StatefulWidget {
   const SkillExpertiseScreen({super.key});
 
   @override
-  _SkillExpertiseScreenState createState() => _SkillExpertiseScreenState();
+  SkillExpertiseScreenState createState() => SkillExpertiseScreenState();
 }
 
-class _SkillExpertiseScreenState extends State<SkillExpertiseScreen> {
+class SkillExpertiseScreenState extends State<SkillExpertiseScreen> {
   bool _isEditMode = false;
 
   void _toggleEditMode() {
@@ -161,11 +161,11 @@ class AddSkillOrExpertiseDialog extends StatefulWidget {
   const AddSkillOrExpertiseDialog({super.key});
 
   @override
-  _AddSkillOrExpertiseDialogState createState() =>
-      _AddSkillOrExpertiseDialogState();
+  AddSkillOrExpertiseDialogState createState() =>
+      AddSkillOrExpertiseDialogState();
 }
 
-class _AddSkillOrExpertiseDialogState extends State<AddSkillOrExpertiseDialog> {
+class AddSkillOrExpertiseDialogState extends State<AddSkillOrExpertiseDialog> {
   bool _isAddingSkill = true;
   final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();

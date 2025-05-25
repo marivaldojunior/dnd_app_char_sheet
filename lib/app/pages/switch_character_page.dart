@@ -10,10 +10,10 @@ class SwitchCharacterScreen extends StatefulWidget {
   const SwitchCharacterScreen({super.key});
 
   @override
-  _SwitchCharacterScreenState createState() => _SwitchCharacterScreenState();
+  SwitchCharacterScreenState createState() => SwitchCharacterScreenState();
 }
 
-class _SwitchCharacterScreenState extends State<SwitchCharacterScreen> {
+class SwitchCharacterScreenState extends State<SwitchCharacterScreen> {
   bool _isEditMode = false;
   int? _activeCharacterId;
 

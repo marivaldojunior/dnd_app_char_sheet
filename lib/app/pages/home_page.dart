@@ -25,10 +25,10 @@ class CharacterDisplayScreen extends StatefulWidget {
   const CharacterDisplayScreen({super.key});
 
   @override
-  _CharacterDisplayScreenState createState() => _CharacterDisplayScreenState();
+  CharacterDisplayScreenState createState() => CharacterDisplayScreenState();
 }
 
-class _CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
+class CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
   bool _isEditMode = false; // Add a state variable to track edit mode
 
   Future<void> _pickImage() async {

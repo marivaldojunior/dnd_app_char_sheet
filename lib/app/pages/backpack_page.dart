@@ -7,10 +7,10 @@ class BackpackPage extends StatefulWidget {
   const BackpackPage({super.key});
 
   @override
-  _BackpackPageState createState() => _BackpackPageState();
+  BackpackPageState createState() => BackpackPageState();
 }
 
-class _BackpackPageState extends State<BackpackPage> {
+class BackpackPageState extends State<BackpackPage> {
   bool _isEditMode = false;
   bool _isDeleteMode = false;
 

@@ -8,10 +8,10 @@ class DiceRow extends StatefulWidget {
   const DiceRow({super.key});
 
   @override
-  _DiceRowState createState() => _DiceRowState();
+  DiceRowState createState() => DiceRowState();
 }
 
-class _DiceRowState extends State<DiceRow> {
+class DiceRowState extends State<DiceRow> {
   Map<String, int> diceCount = {
     'D4': 0,
     'D6': 0,
