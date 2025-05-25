@@ -51,7 +51,7 @@ class SpellCollectionScreen extends StatelessWidget {
 
               final spells = snapshot.data!;
 
-              return StaggeredGridView.countBuilder(
+              return MasonryGridView.count(
                 crossAxisCount: 2, // Two spells per row
                 crossAxisSpacing: 8.0,
                 mainAxisSpacing: 8.0,
@@ -94,7 +94,7 @@ class SpellCollectionScreen extends StatelessWidget {
                     ),
                   );
                 },
-                staggeredTileBuilder: (int index) => const StaggeredTile.fit(1),
+                //staggeredTileBuilder: (int index) => const StaggeredTile.fit(1),
               );
             },
           );
