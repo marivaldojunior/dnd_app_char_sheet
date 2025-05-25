@@ -34,29 +34,28 @@ class CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
   Future<void> _pickImage() async {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
-
+    if (!mounted) return;
     if (image != null) {
       final appDir = await getApplicationDocumentsDirectory();
       final fileName = image.name;
       final savedImage =
       await File(image.path).copy('${appDir.path}/$fileName');
-
+      if (!mounted) return;
       // Delete the old file
-      if (Provider.of<CharacterManager>(context, listen: false)
-          .character
+      final characterManager = Provider.of<CharacterManager>(context, listen: false);
+
+      if (characterManager.character
           .avatarUrl
           .isNotEmpty) {
         final oldImage = File(
-            Provider.of<CharacterManager>(context, listen: false)
-                .character
+            characterManager.character
                 .avatarUrl);
         oldImage.deleteSync();
       }
-
+      if (!mounted) return;
       setState(() {
         // Assuming you have a method to update the character's avatarUrl
-        Provider.of<CharacterManager>(context, listen: false)
-            .updateCharacter({'avatarUrl': savedImage.path});
+        characterManager.updateCharacter({'avatarUrl': savedImage.path});
       });
     }
   }
@@ -64,7 +63,7 @@ class CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
   Future<void> _exportCharacter() async {
     // Let the user pick a directory
     String? outputPath = await FilePicker.platform.getDirectoryPath();
-
+    if (!mounted) return;
     if (outputPath != null) {
       final Character character =
           Provider.of<CharacterManager>(context, listen: false).character;
@@ -80,7 +79,7 @@ class CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
         final file = File(filePath);
 
         await file.writeAsString(jsonString);
-
+        if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Character exported to $filePath')), // Traduzido: '角色已导出至 $filePath' para 'Character exported to $filePath'
         );
