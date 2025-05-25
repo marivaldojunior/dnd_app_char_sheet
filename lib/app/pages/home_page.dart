@@ -16,14 +16,13 @@ import 'dart:io';
 import 'package:dnd_app_char_sheet/app/widgets/dice_row.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:convert';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:dnd_app_char_sheet/app/pages/spell_collection_page.dart';
 import 'package:dnd_app_char_sheet/app/widgets/app_drawer_widget.dart';
 import 'package:dnd_app_char_sheet/app/widgets/consumable_widget.dart';
 
 class CharacterDisplayScreen extends StatefulWidget {
-  CharacterDisplayScreen({super.key});
+  const CharacterDisplayScreen({super.key});
 
   @override
   _CharacterDisplayScreenState createState() => _CharacterDisplayScreenState();
@@ -33,8 +32,8 @@ class _CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
   bool _isEditMode = false; // Add a state variable to track edit mode
 
   Future<void> _pickImage() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
     if (image != null) {
       final appDir = await getApplicationDocumentsDirectory();
@@ -92,7 +91,7 @@ class _CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
       }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Export canceled')), // Traduzido: '导出已取消' para 'Export canceled'
+        const SnackBar(content: Text('Export canceled')), // Traduzido: '导出已取消' para 'Export canceled'
       );
     }
   }
@@ -116,13 +115,13 @@ class _CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
             },
           ),
           IconButton(
-            icon: Icon(Icons.download),
+            icon: const Icon(Icons.download),
             onPressed: _exportCharacter,
             tooltip: 'Export Character', // Traduzido: '导出角色' para 'Export Character'
           ),
         ],
       ),
-      drawer: AppDrawerWidget(),
+      drawer: const AppDrawerWidget(),
       body: Consumer<CharacterManager>(
         builder: (context, manager, child) {
           final Character character = manager.character;
@@ -156,7 +155,7 @@ class _CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
                             WidgetsBinding.instance
                                 .addPostFrameCallback((_) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
+                                const SnackBar(
                                     content: Text(
                                         'Failed to load image, displaying default.')), // Traduzido: '图片加载失败，显示默认图片。' para 'Failed to load image, displaying default.'
                               );
@@ -175,7 +174,7 @@ class _CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
                       ),
                     )
                         : Padding(
-                      padding: EdgeInsets.only(top: 10.0),
+                      padding: const EdgeInsets.only(top: 10.0),
                       child: ClipOval(
                         child: Image.asset(
                           'assets/character.jpg',
@@ -213,7 +212,7 @@ class _CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
                     !_isEditMode, // Disable interaction when not in edit mode
                     child: AttributesDisplay(attributes: character.attributes),
                   ),
-                  ConsumableWidget(),
+                  const ConsumableWidget(),
                   Row(
                     children: [
                       Expanded(
@@ -245,18 +244,18 @@ class _CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      SkillExpertiseScreen()));
+                                      const SkillExpertiseScreen()));
                         },
-                        child: Text('Skills & Feats'), // Traduzido: '技能专长' para 'Skills & Feats'
+                        child: const Text('Skills & Feats'), // Traduzido: '技能专长' para 'Skills & Feats'
                       ),
                       ElevatedButton(
                         onPressed: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => BackpackPage()));
+                                  builder: (context) => const BackpackPage()));
                         },
-                        child: Text('Backpack'), // Traduzido: '背包' para 'Backpack'
+                        child: const Text('Backpack'), // Traduzido: '背包' para 'Backpack'
                       ),
                       ElevatedButton(
                         onPressed: () {
@@ -264,20 +263,20 @@ class _CharacterDisplayScreenState extends State<CharacterDisplayScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      SpellCollectionScreen()));
+                                      const SpellCollectionScreen()));
                         },
-                        child: Text('Spell Collection'), // Traduzido: '法术收藏' para 'Spell Collection'
+                        child: const Text('Spell Collection'), // Traduzido: '法术收藏' para 'Spell Collection'
                       ),
                     ],
                   ),
                   const SizedBox(height: 10),
-                  Divider(
-                    color: const Color.fromARGB(255, 78, 76, 76),
+                  const Divider(
+                    color: Color.fromARGB(255, 78, 76, 76),
                     thickness: 2.0,
                   ),
                   const SizedBox(
                       height: 20), // Larger spacing to distinguish boundaries
-                  DiceRow(),
+                  const DiceRow(),
                   DiceBagWidget(diceBag: character.diceBag),
                 ],
               ),

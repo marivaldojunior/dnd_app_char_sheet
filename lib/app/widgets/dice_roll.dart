@@ -9,8 +9,7 @@ class DiceRollPopup extends StatefulWidget {
   final bool advantageDisadvantage;
 
   const DiceRollPopup(
-      {Key? key, required this.diceSet, this.advantageDisadvantage = false})
-      : super(key: key);
+      {super.key, required this.diceSet, this.advantageDisadvantage = false});
 
   @override
   _DiceRollPopupState createState() => _DiceRollPopupState();
@@ -22,8 +21,8 @@ class _DiceRollPopupState extends State<DiceRollPopup>
   late Animation<double> _animation;
   int _result = 0;
   int _secondResult = 0;
-  Map<String, List<int>> _diceResults = {};
-  Map<String, List<int>> _secondDiceResults = {};
+  final Map<String, List<int>> _diceResults = {};
+  final Map<String, List<int>> _secondDiceResults = {};
 
   @override
   void initState() {
@@ -154,7 +153,7 @@ class _DiceRollPopupState extends State<DiceRollPopup>
               entry.key,
               style: const TextStyle(color: Colors.white, fontSize: 12),
             ),
-            Row(
+            const Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 FaIcon(

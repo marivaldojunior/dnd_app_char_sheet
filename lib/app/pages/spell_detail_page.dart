@@ -7,7 +7,7 @@ import '../data/character_manager.dart';
 class SpellDetailScreen extends StatelessWidget {
   final Spell spell;
 
-  SpellDetailScreen({required this.spell});
+  const SpellDetailScreen({super.key, required this.spell});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class SpellDetailScreen extends StatelessWidget {
     final isFavorite =
     characterManager.character.favoriteSpells.contains(spell.name);
 
-    void _toggleFavorite() {
+    void toggleFavorite() {
       if (isFavorite) {
         characterManager.removeFavoriteSpell(spell.name);
       } else {
@@ -32,7 +32,7 @@ class SpellDetailScreen extends StatelessWidget {
               isFavorite ? Icons.favorite : Icons.favorite_border,
               color: isFavorite ? Colors.red : null,
             ),
-            onPressed: _toggleFavorite,
+            onPressed: toggleFavorite,
           ),
         ],
       ),
@@ -49,17 +49,17 @@ class SpellDetailScreen extends StatelessWidget {
               _buildDetailRow('Range', spell.range), // Traduzido: '施法距离' para 'Range'
               _buildDetailRow('Duration', spell.duration), // Traduzido: '持续时间' para 'Duration'
             ]),
-            Divider(),
+            const Divider(),
             _buildSectionCard('Casting Requirements', [ // Traduzido: '施法要求' para 'Casting Requirements'
               _buildCombinedIconDetailRow(),
               if (spell.material)
                 _buildDetailRow('Material Components', spell.materialComponents), // Traduzido: '材料内容' para 'Material Components'
             ]),
-            Divider(),
+            const Divider(),
             _buildSectionCard('Spell Description', [ // Traduzido: '法术描述' para 'Spell Description'
               Text(spell.description, style: _contentTextStyle()),
             ]),
-            Divider(),
+            const Divider(),
             _buildSectionCard('Other Information', [ // Traduzido: '其他信息' para 'Other Information'
               _buildDetailRow('Class List', spell.classes.join(', ')), // Traduzido: '职业列表' para 'Class List'
               _buildDetailRow('Source', spell.source), // Traduzido: '出处' para 'Source'
@@ -124,15 +124,15 @@ class SpellDetailScreen extends StatelessWidget {
   }
 
   TextStyle _sectionTitleStyle() {
-    return TextStyle(
+    return const TextStyle(
         fontSize: 18, fontWeight: FontWeight.bold, color: Colors.blueAccent);
   }
 
   TextStyle _labelTextStyle() {
-    return TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
+    return const TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
   }
 
   TextStyle _contentTextStyle() {
-    return TextStyle(fontSize: 16);
+    return const TextStyle(fontSize: 16);
   }
 }

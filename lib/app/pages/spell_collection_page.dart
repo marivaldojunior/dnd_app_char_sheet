@@ -8,6 +8,8 @@ import 'package:isar/isar.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SpellCollectionScreen extends StatelessWidget {
+  const SpellCollectionScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,11 +17,11 @@ class SpellCollectionScreen extends StatelessWidget {
         title: const Text('Spell Collection'), // Traduzido: '法术收藏' para 'Spell Collection'
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SpellListScreen()),
+                MaterialPageRoute(builder: (context) => const SpellListScreen()),
               );
             },
             tooltip: 'Search and Add Spells', // Traduzido: '搜索和添加法术' para 'Search and Add Spells'
@@ -31,7 +33,7 @@ class SpellCollectionScreen extends StatelessWidget {
           final favoriteSpells = characterManager.character.favoriteSpells;
 
           if (favoriteSpells.isEmpty) {
-            return Center(
+            return const Center(
               child: Text('No collected spells'), // Traduzido: '没有收藏的法术' para 'No collected spells'
             );
           }
@@ -40,11 +42,11 @@ class SpellCollectionScreen extends StatelessWidget {
             future: _getFavoriteSpells(context, favoriteSpells),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
 
               if (snapshot.hasError) {
-                return Center(child: Text('Error loading spells')); // Traduzido: '加载法术时出错' para 'Error loading spells'
+                return const Center(child: Text('Error loading spells')); // Traduzido: '加载法术时出错' para 'Error loading spells'
               }
 
               final spells = snapshot.data!;
@@ -77,10 +79,10 @@ class SpellCollectionScreen extends StatelessWidget {
                           children: [
                             Text(
                               spell.name,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(height: 8.0),
+                            const SizedBox(height: 8.0),
                             Text('Level: ${spell.level}'), // Traduzido: '环阶' para 'Level'
                             Text('School: ${spell.school}'), // Traduzido: '学派' para 'School'
                             Text('Casting Time: ${spell.castingTime}'), // Traduzido: '施法时间' para 'Casting Time'
@@ -92,7 +94,7 @@ class SpellCollectionScreen extends StatelessWidget {
                     ),
                   );
                 },
-                staggeredTileBuilder: (int index) => StaggeredTile.fit(1),
+                staggeredTileBuilder: (int index) => const StaggeredTile.fit(1),
               );
             },
           );

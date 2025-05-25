@@ -1,6 +1,5 @@
 import 'package:isar/isar.dart';
-import '../lib/app/data/spell.dart'; // Ensure this imports your Spell model
-import 'dart:io';
+import 'package:dnd_app_char_sheet/app/data/spell.dart'; // Ensure this imports your Spell model
 
 Future<void> main() async {
   final isar = await Isar.open([SpellSchema], directory: './isar_db');

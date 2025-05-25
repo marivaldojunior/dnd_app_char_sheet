@@ -5,7 +5,6 @@ import 'package:dnd_app_char_sheet/app/data/diceset.dart';
 import 'package:isar/isar.dart';
 import 'items.dart';
 import 'expertise_item.dart';
-import 'spell.dart';
 import 'consumable.dart';
 
 part 'character.g.dart';

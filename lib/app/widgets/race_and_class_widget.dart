@@ -9,12 +9,12 @@ class CharacterDetailsWidget extends StatelessWidget {
   final String currentAlignment;
 
   const CharacterDetailsWidget({
-    Key? key,
+    super.key,
     required this.currentRace,
     required this.currentClass,
     required this.currentBackground,
     required this.currentAlignment,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

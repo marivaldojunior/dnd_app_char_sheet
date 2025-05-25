@@ -7,6 +7,8 @@ import '../data/character.dart';
 import '../data/character_manager.dart';
 
 class SwitchCharacterScreen extends StatefulWidget {
+  const SwitchCharacterScreen({super.key});
+
   @override
   _SwitchCharacterScreenState createState() => _SwitchCharacterScreenState();
 }
@@ -27,7 +29,7 @@ class _SwitchCharacterScreenState extends State<SwitchCharacterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Switch Character'), // Traduzido: '切换角色' para 'Switch Character'
+        title: const Text('Switch Character'), // Traduzido: '切换角色' para 'Switch Character'
         actions: [
           IconButton(
             icon: Icon(_isEditMode ? Icons.check : Icons.edit),
@@ -44,10 +46,10 @@ class _SwitchCharacterScreenState extends State<SwitchCharacterScreen> {
             .fetchAllCharacters(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
-            return Center(child: Text('Error loading characters')); // Traduzido: '加载角色时出错' para 'Error loading characters'
+            return const Center(child: Text('Error loading characters')); // Traduzido: '加载角色时出错' para 'Error loading characters'
           }
           final characters = snapshot.data!;
           return ListView.builder(
@@ -68,19 +70,19 @@ class _SwitchCharacterScreenState extends State<SwitchCharacterScreen> {
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      if (isActive) Icon(Icons.check, color: Colors.green),
+                      if (isActive) const Icon(Icons.check, color: Colors.green),
                       if (_isEditMode)
                         Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             IconButton(
-                              icon: Icon(Icons.edit),
+                              icon: const Icon(Icons.edit),
                               onPressed: () {
                                 _showEditCharacterDialog(context, character);
                               },
                             ),
                             IconButton(
-                              icon: Icon(Icons.delete),
+                              icon: const Icon(Icons.delete),
                               onPressed: () async {
                                 await Provider.of<CharacterManager>(context,
                                     listen: false)
@@ -107,15 +109,15 @@ class _SwitchCharacterScreenState extends State<SwitchCharacterScreen> {
             onPressed: () {
               _showAddCharacterDialog(context);
             },
-            child: Icon(Icons.add),
-            tooltip: 'Add New Character', // Traduzido: '新增角色' para 'Add New Character'
+            tooltip: 'Add New Character',
+            child: const Icon(Icons.add), // Traduzido: '新增角色' para 'Add New Character'
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           FloatingActionButton(
             heroTag: 'importCharacter',
             onPressed: () => _importCharacter(context),
-            child: Icon(Icons.file_upload),
-            tooltip: 'Import Character', // Traduzido: '导入角色' para 'Import Character'
+            tooltip: 'Import Character',
+            child: const Icon(Icons.file_upload), // Traduzido: '导入角色' para 'Import Character'
           ),
         ],
       ),
@@ -139,7 +141,7 @@ class _SwitchCharacterScreenState extends State<SwitchCharacterScreen> {
 
         setState(() {}); // Refresh the UI after importing
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Character imported successfully')), // Traduzido: '角色导入成功' para 'Character imported successfully'
+          const SnackBar(content: Text('Character imported successfully')), // Traduzido: '角色导入成功' para 'Character imported successfully'
         );
       }
     } catch (e) {
@@ -156,9 +158,9 @@ class _SwitchCharacterScreenState extends State<SwitchCharacterScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Add New Character'), // Traduzido: '新增角色' para 'Add New Character'
+          title: const Text('Add New Character'), // Traduzido: '新增角色' para 'Add New Character'
           content: TextField(
-            decoration: InputDecoration(labelText: 'Character Name'), // Traduzido: '角色名' para 'Character Name'
+            decoration: const InputDecoration(labelText: 'Character Name'), // Traduzido: '角色名' para 'Character Name'
             onChanged: (value) {
               characterName = value;
             },
@@ -168,7 +170,7 @@ class _SwitchCharacterScreenState extends State<SwitchCharacterScreen> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'), // Traduzido: '取消' para 'Cancel'
+              child: const Text('Cancel'), // Traduzido: '取消' para 'Cancel'
             ),
             ElevatedButton(
               onPressed: () async {
@@ -181,7 +183,7 @@ class _SwitchCharacterScreenState extends State<SwitchCharacterScreen> {
                 }
                 Navigator.of(context).pop();
               },
-              child: Text('Confirm'), // Traduzido: '确认' para 'Confirm'
+              child: const Text('Confirm'), // Traduzido: '确认' para 'Confirm'
             ),
           ],
         );
@@ -196,9 +198,9 @@ class _SwitchCharacterScreenState extends State<SwitchCharacterScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Edit Character Name'), // Traduzido: '修改角色名' para 'Edit Character Name'
+          title: const Text('Edit Character Name'), // Traduzido: '修改角色名' para 'Edit Character Name'
           content: TextField(
-            decoration: InputDecoration(labelText: 'Character Name'), // Traduzido: '角色名' para 'Character Name'
+            decoration: const InputDecoration(labelText: 'Character Name'), // Traduzido: '角色名' para 'Character Name'
             controller: TextEditingController(text: characterName),
             onChanged: (value) {
               characterName = value;
@@ -209,7 +211,7 @@ class _SwitchCharacterScreenState extends State<SwitchCharacterScreen> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'), // Traduzido: '取消' para 'Cancel'
+              child: const Text('Cancel'), // Traduzido: '取消' para 'Cancel'
             ),
             ElevatedButton(
               onPressed: () async {
@@ -220,7 +222,7 @@ class _SwitchCharacterScreenState extends State<SwitchCharacterScreen> {
                 }
                 Navigator.of(context).pop();
               },
-              child: Text('Confirm'), // Traduzido: '确认' para 'Confirm'
+              child: const Text('Confirm'), // Traduzido: '确认' para 'Confirm'
             ),
           ],
         );

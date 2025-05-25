@@ -4,7 +4,6 @@ import 'package:dnd_app_char_sheet/app/data/character.dart';
 import 'diceset.dart';
 import 'items.dart';
 import 'package:isar/isar.dart';
-import 'package:path_provider/path_provider.dart';
 import 'expertise_item.dart';
 import 'consumable.dart';
 
@@ -31,7 +30,7 @@ class CharacterManager extends ChangeNotifier {
   Future<void> _loadCharacter() async {
     final lastCharacterId = appPrefs.getLastCharacterId();
     if (lastCharacterId != null) {
-      final character = await await isar.characters.get(lastCharacterId);
+      final character = await isar.characters.get(lastCharacterId);
       if (character != null) {
         _character = character;
       } else {

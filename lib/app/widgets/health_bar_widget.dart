@@ -7,7 +7,7 @@ class HealthBar extends StatelessWidget {
   final int maxHitPoints;
   final int temporaryHitPoints;
 
-  HealthBar({
+  const HealthBar({super.key, 
     required this.currentHitPoints,
     required this.maxHitPoints,
     required this.temporaryHitPoints,
@@ -23,19 +23,18 @@ class HealthBar extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'HP: $currentHitPoints / $maxHitPoints' +
-                (temporaryHitPoints > 0
+            'HP: $currentHitPoints / $maxHitPoints${temporaryHitPoints > 0
                     ? ' (Temporary: $temporaryHitPoints)' // Traduzido
-                    : ''),
-            style: TextStyle(fontSize: 14.0),
+                    : ''}',
+            style: const TextStyle(fontSize: 14.0),
           ),
-          SizedBox(height: 4.0),
+          const SizedBox(height: 4.0),
           ClipRRect(
             borderRadius: BorderRadius.circular(10.0),
             child: LinearProgressIndicator(
               value: healthPercentage,
               backgroundColor: Colors.red.withOpacity(0.5),
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+              valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
               minHeight: 20.0,
             ),
           ),
@@ -60,7 +59,7 @@ class HealthBar extends StatelessWidget {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              title: Text('Adjust Health'), // Traduzido
+              title: const Text('Adjust Health'), // Traduzido
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -68,7 +67,7 @@ class HealthBar extends StatelessWidget {
                   TextField(
                     controller: maxHpController,
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(labelText: 'New Max Health'), // Traduzido
+                    decoration: const InputDecoration(labelText: 'New Max Health'), // Traduzido
                     onChanged: (value) {
                       setState(() {
                         newMaxHitPoints =
@@ -80,7 +79,7 @@ class HealthBar extends StatelessWidget {
                   TextField(
                     controller: tempHpController,
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(labelText: 'Temporary Health'), // Traduzido
+                    decoration: const InputDecoration(labelText: 'Temporary Health'), // Traduzido
                     onChanged: (value) {
                       setState(() {
                         newTemporaryHitPoints =
@@ -118,7 +117,7 @@ class HealthBar extends StatelessWidget {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(),
-                  child: Text('Cancel'), // Traduzido
+                  child: const Text('Cancel'), // Traduzido
                 ),
                 TextButton(
                   onPressed: () {
@@ -132,7 +131,7 @@ class HealthBar extends StatelessWidget {
                       'temporaryHitPoints': newTemporaryHitPoints,
                     });
                   },
-                  child: Text('Confirm'), // Traduzido
+                  child: const Text('Confirm'), // Traduzido
                 ),
               ],
             );

@@ -5,6 +5,8 @@ import 'package:dnd_app_char_sheet/app/data/character_manager.dart';
 import 'dice_roll.dart'; // Assuming this is the correct path
 
 class DiceRow extends StatefulWidget {
+  const DiceRow({super.key});
+
   @override
   _DiceRowState createState() => _DiceRowState();
 }
@@ -56,7 +58,7 @@ class _DiceRowState extends State<DiceRow> {
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please select at least one die to roll')), // Traduzido: '请至少选择一个骰子进行投掷' para 'Please select at least one die to roll'
+        const SnackBar(content: Text('Please select at least one die to roll')), // Traduzido: '请至少选择一个骰子进行投掷' para 'Please select at least one die to roll'
       );
     }
   }
@@ -73,7 +75,7 @@ class _DiceRowState extends State<DiceRow> {
 
     if (dices.every((count) => count == 0)) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please select at least one die')), // Traduzido: '请至少选择一个骰子' para 'Please select at least one die'
+        const SnackBar(content: Text('Please select at least one die')), // Traduzido: '请至少选择一个骰子' para 'Please select at least one die'
       );
       return;
     }
@@ -85,18 +87,18 @@ class _DiceRowState extends State<DiceRow> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Save Dice Set'), // Traduzido: '保存骰子组' para 'Save Dice Set'
+          title: const Text('Save Dice Set'), // Traduzido: '保存骰子组' para 'Save Dice Set'
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
-                decoration: InputDecoration(labelText: 'Dice Set Name'), // Traduzido: '骰子组名称' para 'Dice Set Name'
+                decoration: const InputDecoration(labelText: 'Dice Set Name'), // Traduzido: '骰子组名称' para 'Dice Set Name'
                 onChanged: (value) {
                   diceSetName = value;
                 },
               ),
               TextField(
-                decoration: InputDecoration(labelText: 'Modifier'), // Traduzido: '调整值' para 'Modifier'
+                decoration: const InputDecoration(labelText: 'Modifier'), // Traduzido: '调整值' para 'Modifier'
                 keyboardType: TextInputType.number,
                 onChanged: (value) {
                   modifier = int.tryParse(value) ?? 0;
@@ -106,17 +108,17 @@ class _DiceRowState extends State<DiceRow> {
           ),
           actions: [
             TextButton(
-              child: Text('Cancel'), // Traduzido: '取消' para 'Cancel'
+              child: const Text('Cancel'), // Traduzido: '取消' para 'Cancel'
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: Text('Save'), // Traduzido: '保存' para 'Save'
+              child: const Text('Save'), // Traduzido: '保存' para 'Save'
               onPressed: () {
                 if (diceSetName.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Please enter a dice set name')), // Traduzido: '请输入骰子组名称' para 'Please enter a dice set name'
+                    const SnackBar(content: Text('Please enter a dice set name')), // Traduzido: '请输入骰子组名称' para 'Please enter a dice set name'
                   );
                   return;
                 }
@@ -154,23 +156,23 @@ class _DiceRowState extends State<DiceRow> {
             _buildDiceButton('D20'),
           ],
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ElevatedButton.icon(
-              icon: Icon(Icons.refresh),
-              label: Text('Reset'), // Traduzido: '重置' para 'Reset'
+              icon: const Icon(Icons.refresh),
+              label: const Text('Reset'), // Traduzido: '重置' para 'Reset'
               onPressed: _resetDice,
             ),
             ElevatedButton.icon(
-              icon: Icon(Icons.casino),
-              label: Text('Roll'), // Traduzido: '投掷' para 'Roll'
+              icon: const Icon(Icons.casino),
+              label: const Text('Roll'), // Traduzido: '投掷' para 'Roll'
               onPressed: () => _rollDice(context),
             ),
             ElevatedButton.icon(
-              icon: Icon(Icons.save),
-              label: Text('Save'), // Traduzido: '保存' para 'Save'
+              icon: const Icon(Icons.save),
+              label: const Text('Save'), // Traduzido: '保存' para 'Save'
               onPressed: () => _saveDiceSet(context),
             ),
           ],
@@ -189,7 +191,7 @@ class _DiceRowState extends State<DiceRow> {
                 ? Theme.of(context).colorScheme.primaryContainer
                 : null,
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Text(
                 diceType,
                 style: TextStyle(
@@ -206,14 +208,14 @@ class _DiceRowState extends State<DiceRow> {
             right: 0,
             bottom: 0,
             child: Container(
-              padding: EdgeInsets.all(4),
+              padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.secondary,
                 shape: BoxShape.circle,
               ),
               child: Text(
                 '${diceCount[diceType]}', // Show current count
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 12,
                 ),

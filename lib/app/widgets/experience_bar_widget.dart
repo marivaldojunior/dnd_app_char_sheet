@@ -6,7 +6,7 @@ class ExperienceBar extends StatelessWidget {
   final int currentExperience;
   final int currentLevel;
 
-  ExperienceBar({required this.currentExperience, required this.currentLevel});
+  const ExperienceBar({super.key, required this.currentExperience, required this.currentLevel});
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +24,10 @@ class ExperienceBar extends StatelessWidget {
               value: progress,
               minHeight: 20.0,
               backgroundColor: Colors.grey[300],
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+              valueColor: const AlwaysStoppedAnimation<Color>(Colors.blue),
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
               'XP: $currentExperience / $nextLevelXP | LV: $currentLevel | +$proficiencyBonus'),
         ],
@@ -79,18 +79,18 @@ class ExperienceBar extends StatelessWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Adjust Experience'), // Traduzido: '调整经验值' para 'Adjust Experience'
+          title: const Text('Adjust Experience'), // Traduzido: '调整经验值' para 'Adjust Experience'
           content: TextField(
             controller: xpController,
             keyboardType: TextInputType.number,
-            decoration: InputDecoration(hintText: "Enter XP gained or lost"), // Traduzido: '输入获得或失去的经验值' para 'Enter XP gained or lost'
+            decoration: const InputDecoration(hintText: "Enter XP gained or lost"), // Traduzido: '输入获得或失去的经验值' para 'Enter XP gained or lost'
           ),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'), // Traduzido: '取消' para 'Cancel'
+              child: const Text('Cancel'), // Traduzido: '取消' para 'Cancel'
             ),
             TextButton(
               onPressed: () {
@@ -98,7 +98,7 @@ class ExperienceBar extends StatelessWidget {
                 _updateExperience(context, deltaXP);
                 Navigator.of(context).pop();
               },
-              child: Text('Confirm'), // Traduzido: '确认' para 'Confirm'
+              child: const Text('Confirm'), // Traduzido: '确认' para 'Confirm'
             ),
           ],
         );

@@ -1,14 +1,13 @@
 // lib/main.dart
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:isar/isar.dart';
-import 'package:path_provider/path_provider.dart';
 import '../data/spell.dart';
 import 'package:provider/provider.dart';
 import 'spell_detail_page.dart';
 
 class SpellListScreen extends StatefulWidget {
+  const SpellListScreen({super.key});
+
   @override
   _SpellListScreenState createState() => _SpellListScreenState();
 }
@@ -53,14 +52,14 @@ class _SpellListScreenState extends State<SpellListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Spell List'), // Traduzido: '法术列表' para 'Spell List'
+        title: const Text('Spell List'), // Traduzido: '法术列表' para 'Spell List'
       ),
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Search Spells', // Traduzido: '搜索法术' para 'Search Spells'
                 border: OutlineInputBorder(),
               ),
@@ -103,7 +102,7 @@ class _SpellListScreenState extends State<SpellListScreen> {
           ),
           Expanded(
             child: filteredSpells.isEmpty
-                ? Center(child: CircularProgressIndicator())
+                ? const Center(child: CircularProgressIndicator())
                 : ListView.builder(
               itemCount: filteredSpells.length,
               itemBuilder: (context, index) {

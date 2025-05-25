@@ -4,6 +4,8 @@ import 'package:dnd_app_char_sheet/app/data/items.dart';
 import 'package:provider/provider.dart';
 
 class BackpackPage extends StatefulWidget {
+  const BackpackPage({super.key});
+
   @override
   _BackpackPageState createState() => _BackpackPageState();
 }
@@ -61,14 +63,14 @@ class _BackpackPageState extends State<BackpackPage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     TextField(
-                      decoration: InputDecoration(labelText: 'Item Name'), // Traduzido: '物品名称' para 'Item Name'
+                      decoration: const InputDecoration(labelText: 'Item Name'), // Traduzido: '物品名称' para 'Item Name'
                       onChanged: (value) {
                         itemName = value;
                       },
                       controller: TextEditingController(text: itemName),
                     ),
                     TextField(
-                      decoration: InputDecoration(labelText: 'Quantity'), // Traduzido: '数量' para 'Quantity'
+                      decoration: const InputDecoration(labelText: 'Quantity'), // Traduzido: '数量' para 'Quantity'
                       keyboardType: TextInputType.number,
                       onChanged: (value) {
                         itemQuantity = int.tryParse(value) ?? itemQuantity;
@@ -77,7 +79,7 @@ class _BackpackPageState extends State<BackpackPage> {
                       TextEditingController(text: itemQuantity.toString()),
                     ),
                     TextField(
-                      decoration: InputDecoration(labelText: 'Description'), // Traduzido: '描述' para 'Description'
+                      decoration: const InputDecoration(labelText: 'Description'), // Traduzido: '描述' para 'Description'
                       onChanged: (value) {
                         itemDescription = value;
                       },
@@ -132,20 +134,20 @@ class _BackpackPageState extends State<BackpackPage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     TextField(
-                      decoration: InputDecoration(labelText: 'Item Name'), // Traduzido: '物品名称' para 'Item Name'
+                      decoration: const InputDecoration(labelText: 'Item Name'), // Traduzido: '物品名称' para 'Item Name'
                       onChanged: (value) {
                         itemName = value;
                       },
                     ),
                     TextField(
-                      decoration: InputDecoration(labelText: 'Quantity'), // Traduzido: '数量' para 'Quantity'
+                      decoration: const InputDecoration(labelText: 'Quantity'), // Traduzido: '数量' para 'Quantity'
                       keyboardType: TextInputType.number,
                       onChanged: (value) {
                         itemQuantity = int.tryParse(value) ?? itemQuantity;
                       },
                     ),
                     TextField(
-                      decoration: InputDecoration(labelText: 'Description'), // Traduzido: '描述' para 'Description'
+                      decoration: const InputDecoration(labelText: 'Description'), // Traduzido: '描述' para 'Description'
                       onChanged: (value) {
                         itemDescription = value;
                       },
@@ -226,7 +228,7 @@ class _BackpackPageState extends State<BackpackPage> {
                 final item = backpack[index];
                 return Card(
                   key: ValueKey(item.uniqueId), // Ensure each card has a unique key
-                  margin: EdgeInsets.symmetric(vertical: 4.0),
+                  margin: const EdgeInsets.symmetric(vertical: 4.0),
                   child: ListTile(
                     title: Text(item.name),
                     subtitle: Text(item.description),
@@ -235,14 +237,14 @@ class _BackpackPageState extends State<BackpackPage> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         IconButton(
-                          icon: Icon(Icons.remove, color: Colors.red),
+                          icon: const Icon(Icons.remove, color: Colors.red),
                           onPressed: () =>
                               _decrementItemQuantity(context, item),
                           tooltip: 'Decrease Quantity', // Traduzido
                         ),
                         Text('Quantity: ${item.quantity}'), // Traduzido
                         IconButton(
-                          icon: Icon(Icons.add, color: Colors.green),
+                          icon: const Icon(Icons.add, color: Colors.green),
                           onPressed: () =>
                               _incrementItemQuantity(context, item),
                           tooltip: 'Increase Quantity', // Traduzido
@@ -251,7 +253,7 @@ class _BackpackPageState extends State<BackpackPage> {
                     )
                         : _isDeleteMode
                         ? IconButton(
-                      icon: Icon(Icons.delete, color: Colors.red),
+                      icon: const Icon(Icons.delete, color: Colors.red),
                       onPressed: () => _deleteItem(context, item),
                       tooltip: 'Delete Item', // Traduzido
                     )
@@ -268,8 +270,8 @@ class _BackpackPageState extends State<BackpackPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _showAddItemDialog(context),
-        child: const Icon(Icons.add),
-        tooltip: 'Add New Item', // Traduzido: '添加新物品' para 'Add New Item'
+        tooltip: 'Add New Item',
+        child: const Icon(Icons.add), // Traduzido: '添加新物品' para 'Add New Item'
       ),
     );
   }

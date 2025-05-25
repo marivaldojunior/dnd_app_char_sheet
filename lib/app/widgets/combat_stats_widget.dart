@@ -8,11 +8,11 @@ class CombatStatsWidget extends StatelessWidget {
   final int speed;
 
   const CombatStatsWidget({
-    Key? key,
+    super.key,
     required this.armorClass,
     required this.initiative,
     required this.speed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -65,9 +65,9 @@ class CombatStatsWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 _buildDialogTextField('Armor Class (AC)', acController), // Traduzido
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 _buildDialogTextField('Initiative', initiativeController), // Traduzido
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 _buildDialogTextField('Speed', speedController), // Traduzido
               ],
             ),

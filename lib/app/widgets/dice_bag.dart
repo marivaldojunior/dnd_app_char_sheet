@@ -8,9 +8,9 @@ class DiceBagWidget extends StatelessWidget {
   final List<DiceSet> diceBag;
 
   const DiceBagWidget({
-    Key? key,
+    super.key,
     required this.diceBag,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +90,7 @@ class DiceBagWidget extends StatelessWidget {
                   },
                 ),
               );
-            }).toList(),
+            }),
             const SizedBox(height: 10),
             Center(
               child: ElevatedButton.icon(
@@ -136,7 +136,7 @@ class DiceBagWidget extends StatelessWidget {
     children: [
     // Input for dice set name
     TextField(
-    decoration: InputDecoration(labelText: 'New Dice Set Name'), // Traduzido: '新的骰子组名称' para 'New Dice Set Name'
+    decoration: const InputDecoration(labelText: 'New Dice Set Name'), // Traduzido: '新的骰子组名称' para 'New Dice Set Name'
     controller: TextEditingController(text: diceSetName),
     onChanged: (value) {
     // No need for setState here as diceSetName is updated directly
@@ -177,7 +177,7 @@ class DiceBagWidget extends StatelessWidget {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('Modifier'), // Traduzido: '调整值' para 'Modifier'
+          const Text('Modifier'), // Traduzido: '调整值' para 'Modifier'
           Row(
             children: [
               IconButton(
@@ -212,7 +212,7 @@ class DiceBagWidget extends StatelessWidget {
             onPressed: () {
               if (diceSetName.isEmpty) { // Corrected condition
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Please enter a valid name')), // Traduzido: '请输入有效的名称' para 'Please enter a valid name'
+                  const SnackBar(content: Text('Please enter a valid name')), // Traduzido: '请输入有效的名称' para 'Please enter a valid name'
                 );
                 return;
               }
@@ -253,7 +253,7 @@ class DiceBagWidget extends StatelessWidget {
               onPressed: () {
                 // Prompt user to double tap to confirm delete
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Please double tap to confirm deletion')), // Traduzido: '请双击确认删除' para 'Please double tap to confirm deletion'
+                  const SnackBar(content: Text('Please double tap to confirm deletion')), // Traduzido: '请双击确认删除' para 'Please double tap to confirm deletion'
                 );
               },
             ),

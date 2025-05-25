@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:dnd_app_char_sheet/app/data/expertise_item.dart';
 
 class SkillExpertiseScreen extends StatefulWidget {
-  SkillExpertiseScreen({super.key});
+  const SkillExpertiseScreen({super.key});
 
   @override
   _SkillExpertiseScreenState createState() => _SkillExpertiseScreenState();
@@ -23,7 +23,7 @@ class _SkillExpertiseScreenState extends State<SkillExpertiseScreen> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AddSkillOrExpertiseDialog();
+        return const AddSkillOrExpertiseDialog();
       },
     );
   }
@@ -79,12 +79,12 @@ class _SkillExpertiseScreenState extends State<SkillExpertiseScreen> {
                       childrenPadding: EdgeInsets.zero,
                       children: skills
                           .map((skill) => Card(
-                        margin: EdgeInsets.symmetric(vertical: 4.0),
+                        margin: const EdgeInsets.symmetric(vertical: 4.0),
                         child: ListTile(
                           title: Text(skill),
                           trailing: _isEditMode
                               ? IconButton(
-                            icon: Icon(Icons.delete,
+                            icon: const Icon(Icons.delete,
                                 color: Colors.red),
                             onPressed: () =>
                                 _deleteSkill(context, skill),
@@ -115,13 +115,13 @@ class _SkillExpertiseScreenState extends State<SkillExpertiseScreen> {
                       initiallyExpanded: true,
                       children: expertise
                           .map((exp) => Card(
-                        margin: EdgeInsets.symmetric(vertical: 4.0),
+                        margin: const EdgeInsets.symmetric(vertical: 4.0),
                         child: ListTile(
                           title: Text(exp.name),
                           subtitle: Text(exp.description),
                           trailing: _isEditMode
                               ? IconButton(
-                            icon: Icon(Icons.delete,
+                            icon: const Icon(Icons.delete,
                                 color: Colors.red),
                             onPressed: () => _deleteExpertise(
                                 context, exp.name),
@@ -146,8 +146,8 @@ class _SkillExpertiseScreenState extends State<SkillExpertiseScreen> {
               child: FloatingActionButton(
                 heroTag: 'addButton',
                 onPressed: () => _addSkillOrExpertise(context),
-                child: Icon(Icons.add),
-                tooltip: 'Add Skill or Expertise', // '添加技能或专长' para 'Add Skill or Expertise'
+                tooltip: 'Add Skill or Expertise',
+                child: const Icon(Icons.add), // '添加技能或专长' para 'Add Skill or Expertise'
               ),
             ),
           ],
@@ -158,6 +158,8 @@ class _SkillExpertiseScreenState extends State<SkillExpertiseScreen> {
 }
 
 class AddSkillOrExpertiseDialog extends StatefulWidget {
+  const AddSkillOrExpertiseDialog({super.key});
+
   @override
   _AddSkillOrExpertiseDialogState createState() =>
       _AddSkillOrExpertiseDialogState();
@@ -200,7 +202,7 @@ class _AddSkillOrExpertiseDialogState extends State<AddSkillOrExpertiseDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Add Skill or Expertise'), // Traduzido: '添加技能或专长' para 'Add Skill or Expertise'
+      title: const Text('Add Skill or Expertise'), // Traduzido: '添加技能或专长' para 'Add Skill or Expertise'
       content: SingleChildScrollView(
         child: StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
@@ -213,7 +215,7 @@ class _AddSkillOrExpertiseDialogState extends State<AddSkillOrExpertiseDialog> {
                   children: [
                     Expanded(
                       child: RadioListTile<bool>(
-                        title: Text('Skill'), // Traduzido: '技能' para 'Skill'
+                        title: const Text('Skill'), // Traduzido: '技能' para 'Skill'
                         value: true,
                         groupValue: _isAddingSkill,
                         onChanged: (value) {
@@ -225,7 +227,7 @@ class _AddSkillOrExpertiseDialogState extends State<AddSkillOrExpertiseDialog> {
                     ),
                     Expanded(
                       child: RadioListTile<bool>(
-                        title: Text('Expertise/Feat'), // Traduzido: '专长' para 'Expertise/Feat' (Expertise is more common in D&D for this context)
+                        title: const Text('Expertise/Feat'), // Traduzido: '专长' para 'Expertise/Feat' (Expertise is more common in D&D for this context)
                         value: false,
                         groupValue: _isAddingSkill,
                         onChanged: (value) {
@@ -243,7 +245,7 @@ class _AddSkillOrExpertiseDialogState extends State<AddSkillOrExpertiseDialog> {
                     double.infinity,
                     child: DropdownButton<String>(
                       value: _selectedSkill,
-                      hint: Text('Select Skill'), // Traduzido: '选择技能' para 'Select Skill'
+                      hint: const Text('Select Skill'), // Traduzido: '选择技能' para 'Select Skill'
                       onChanged: (String? newValue) {
                         setState(() {
                           _selectedSkill = newValue;
@@ -264,11 +266,11 @@ class _AddSkillOrExpertiseDialogState extends State<AddSkillOrExpertiseDialog> {
                     children: [
                       TextField(
                         controller: _nameController,
-                        decoration: InputDecoration(labelText: 'Name'), // Traduzido: '名称' para 'Name'
+                        decoration: const InputDecoration(labelText: 'Name'), // Traduzido: '名称' para 'Name'
                       ),
                       TextField(
                         controller: _descriptionController,
-                        decoration: InputDecoration(labelText: 'Description'), // Traduzido: '描述' para 'Description'
+                        decoration: const InputDecoration(labelText: 'Description'), // Traduzido: '描述' para 'Description'
                       ),
                     ],
                   ),
@@ -298,13 +300,13 @@ class _AddSkillOrExpertiseDialogState extends State<AddSkillOrExpertiseDialog> {
             }
             Navigator.of(context).pop();
           },
-          child: Text('Add'), // Traduzido: '添加' para 'Add'
+          child: const Text('Add'), // Traduzido: '添加' para 'Add'
         ),
         TextButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text('Cancel'), // Traduzido: '取消' para 'Cancel'
+          child: const Text('Cancel'), // Traduzido: '取消' para 'Cancel'
         ),
       ],
     );

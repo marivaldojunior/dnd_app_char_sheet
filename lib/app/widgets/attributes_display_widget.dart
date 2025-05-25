@@ -8,11 +8,11 @@ class AttributeCard extends StatelessWidget {
   final int value;
 
   const AttributeCard({
-    Key? key,
+    super.key,
     required this.name,
     required this.icon,
     required this.value,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -126,8 +126,7 @@ class AttributeCard extends StatelessWidget {
 class AttributesDisplay extends StatelessWidget {
   final List<int> attributes;
 
-  const AttributesDisplay({Key? key, required this.attributes})
-      : super(key: key);
+  const AttributesDisplay({super.key, required this.attributes});
 
   @override
   Widget build(BuildContext context) {

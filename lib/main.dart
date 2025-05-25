@@ -13,7 +13,6 @@ import 'app/pages/switch_character_page.dart';
 import 'app/pages/setting_page.dart';
 import 'app/pages/about_page.dart';
 import 'app/setting/app_pref.dart';
-import 'app/pages/widget_test_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +28,7 @@ Future<void> main() async {
                 CharacterManager(isar: isar, appPrefs: appPrefs)),
         Provider<Isar>.value(value: isar), // Provide the Isar instance
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -58,6 +57,8 @@ Future<Isar> initializeDatabase() async {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -66,11 +67,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        '/': (context) => CharacterDisplayScreen(),
+        '/': (context) => const CharacterDisplayScreen(),
         // '/': (context) => WidgetTestPage(),
-        '/switch_character': (context) => SwitchCharacterScreen(),
-        '/setting': (context) => SettingsPage(),
-        '/about': (context) => AboutPage(),
+        '/switch_character': (context) => const SwitchCharacterScreen(),
+        '/setting': (context) => const SettingsPage(),
+        '/about': (context) => const AboutPage(),
       },
     );
   }

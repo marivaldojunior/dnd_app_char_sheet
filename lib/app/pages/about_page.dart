@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 class AboutPage extends StatelessWidget {
   final String githubUrl = 'https://github.com/wanakiki/dnd_character_sheet';
 
+  const AboutPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

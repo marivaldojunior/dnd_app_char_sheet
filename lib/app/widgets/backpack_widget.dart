@@ -7,9 +7,9 @@ class BackpackWidget extends StatelessWidget {
   final List<Item> backpack;
 
   const BackpackWidget({
-    Key? key,
+    super.key,
     required this.backpack,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -85,14 +85,14 @@ class BackpackWidget extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     TextField(
-                      decoration: InputDecoration(labelText: 'Item Name'), // Traduzido: "物品名称" para "Item Name"
+                      decoration: const InputDecoration(labelText: 'Item Name'), // Traduzido: "物品名称" para "Item Name"
                       onChanged: (value) {
                         itemName = value;
                       },
                       controller: TextEditingController(text: itemName),
                     ),
                     TextField(
-                      decoration: InputDecoration(labelText: 'Quantity'), // Traduzido: "数量" para "Quantity"
+                      decoration: const InputDecoration(labelText: 'Quantity'), // Traduzido: "数量" para "Quantity"
                       keyboardType: TextInputType.number,
                       onChanged: (value) {
                         itemQuantity = int.tryParse(value) ?? itemQuantity;
@@ -101,7 +101,7 @@ class BackpackWidget extends StatelessWidget {
                       TextEditingController(text: itemQuantity.toString()),
                     ),
                     TextField(
-                      decoration: InputDecoration(labelText: 'Description'), // Traduzido: "描述" para "Description"
+                      decoration: const InputDecoration(labelText: 'Description'), // Traduzido: "描述" para "Description"
                       onChanged: (value) {
                         itemDescription = value;
                       },
@@ -138,7 +138,7 @@ class BackpackWidget extends StatelessWidget {
                 child: const Text('Delete (Double Tap to Confirm)'), // Traduzido: "删除（双击确认）" para "Delete (Double Tap to Confirm)"
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Please double tap to confirm deletion')), // Traduzido: "请双击确认删除" para "Please double tap to confirm deletion"
+                    const SnackBar(content: Text('Please double tap to confirm deletion')), // Traduzido: "请双击确认删除" para "Please double tap to confirm deletion"
                   );
                 },
               ),
@@ -166,20 +166,20 @@ class BackpackWidget extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     TextField(
-                      decoration: InputDecoration(labelText: 'Item Name'), // Traduzido: "物品名称" para "Item Name"
+                      decoration: const InputDecoration(labelText: 'Item Name'), // Traduzido: "物品名称" para "Item Name"
                       onChanged: (value) {
                         itemName = value;
                       },
                     ),
                     TextField(
-                      decoration: InputDecoration(labelText: 'Quantity'), // Traduzido: "数量" para "Quantity"
+                      decoration: const InputDecoration(labelText: 'Quantity'), // Traduzido: "数量" para "Quantity"
                       keyboardType: TextInputType.number,
                       onChanged: (value) {
                         itemQuantity = int.tryParse(value) ?? itemQuantity;
                       },
                     ),
                     TextField(
-                      decoration: InputDecoration(labelText: 'Description'), // Traduzido: "描述" para "Description"
+                      decoration: const InputDecoration(labelText: 'Description'), // Traduzido: "描述" para "Description"
                       onChanged: (value) {
                         itemDescription = value;
                       },

@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 class CoinDisplayWidget extends StatelessWidget {
   final List<int> coin; // [gold, silver, copper]
 
-  const CoinDisplayWidget({Key? key, required this.coin}) : super(key: key);
+  const CoinDisplayWidget({super.key, required this.coin});
 
   @override
   Widget build(BuildContext context) {
