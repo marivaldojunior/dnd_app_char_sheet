@@ -1,0 +1,3 @@
+Long pressing an item will bring up a button to edit the dice, allowing you to edit the quantity of dice. Then, for dice with a dice icon in the upper left corner, long press to add. A single click performs a D20 roll, and a double click performs a D20 roll with advantage.
+
+In the default state of the backpack interface, you can directly long press a card to activate the edit function. After entering edit mode, you can quickly adjust the card order and item quantities.

@@ -1,0 +1,2 @@
+D:/repos/dnd_app_char_sheet/android/app/.cxx/Debug/d5a1x1m1/x86_64/CMakeFiles/edit_cache.dir
+D:/repos/dnd_app_char_sheet/android/app/.cxx/Debug/d5a1x1m1/x86_64/CMakeFiles/rebuild_cache.dir
