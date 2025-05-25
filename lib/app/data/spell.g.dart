@@ -222,7 +222,7 @@ const SpellSchema = CollectionSchema(
   getId: _spellGetId,
   getLinks: _spellGetLinks,
   attach: _spellAttach,
-  version: '3.1.7',
+  version: '3.1.8',
 );
 
 int _spellEstimateSize(

@@ -162,7 +162,7 @@ const CharacterSchema = CollectionSchema(
   getId: _characterGetId,
   getLinks: _characterGetLinks,
   attach: _characterAttach,
-  version: '3.1.7',
+  version: '3.1.8',
 );
 
 int _characterEstimateSize(

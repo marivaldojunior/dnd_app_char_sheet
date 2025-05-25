@@ -78,7 +78,7 @@ Consumable _consumableDeserialize(
     currentCount: reader.readLongOrNull(offsets[0]) ?? 1,
     longRestRecovery: reader.readLongOrNull(offsets[1]) ?? 0,
     maxCount: reader.readLongOrNull(offsets[2]) ?? 3,
-    name: reader.readStringOrNull(offsets[3]) ?? '生命骰',
+    name: reader.readStringOrNull(offsets[3]) ?? 'Hit Dice',
     shortRestRecovery: reader.readLongOrNull(offsets[4]) ?? 0,
   );
   return object;
@@ -98,7 +98,7 @@ P _consumableDeserializeProp<P>(
     case 2:
       return (reader.readLongOrNull(offset) ?? 3) as P;
     case 3:
-      return (reader.readStringOrNull(offset) ?? '生命骰') as P;
+      return (reader.readStringOrNull(offset) ?? 'Hit Dice') as P;
     case 4:
       return (reader.readLongOrNull(offset) ?? 0) as P;
     default:

@@ -16,8 +16,8 @@ subprojects {
     if (project.plugins.hasPlugin("com.android.application") ||
       project.plugins.hasPlugin("com.android.library")) {
       project.android {
-        compileSdkVersion 34
-        buildToolsVersion "34.0.0"
+        compileSdkVersion 35
+        buildToolsVersion "35.0.0"
       }
     }
     if (project.hasProperty("android")) {
@@ -50,7 +50,8 @@ buildscript {
     }
     dependencies {
         //classpath 'com.android.tools.build:gradle:8.1.0' // or the latest version that supports API 34
-        classpath 'com.android.tools.build:gradle:8.2.1' // or the latest version that supports API 34
+        //classpath 'com.android.tools.build:gradle:8.2.1' // or the latest version that supports API 34
+        classpath 'com.android.tools.build:gradle:8.4.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0" // Ou a versão do plugin Kotlin compatível
         // Add other classpath dependencies here if needed
     }
