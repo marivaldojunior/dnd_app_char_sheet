@@ -39,8 +39,8 @@ class _SkillExpertiseScreenState extends State<SkillExpertiseScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => true,
+    return PopScope(
+      canPop: true,
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Skills & Feats Display'), // Traduzido: '技能专长展示' para 'Skills & Feats Display'

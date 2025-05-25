@@ -33,7 +33,7 @@ class HealthBar extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.0),
             child: LinearProgressIndicator(
               value: healthPercentage,
-              backgroundColor: Colors.red.withOpacity(0.5),
+              backgroundColor: const Color.fromRGBO(255, 0, 0, 0.5),
               valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
               minHeight: 20.0,
             ),

@@ -22,6 +22,6 @@ Future<void> main() async {
     await isar.spells.putAll(spells);
   });
 
-  print('Database populated!');
+  //print('Database populated!');
   await isar.close();
 }
